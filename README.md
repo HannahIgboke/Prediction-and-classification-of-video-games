@@ -1,7 +1,7 @@
 # Prediction and classification of video games 🎮
 
 <p align="left">
-    <img width="800" src="https://github.com/HannahIgboke/Prediction-and-classification-of-video-games/blob/main/Notebooks/Images/games.jpeg" alt="Video games">
+    <img width="600" src="https://github.com/HannahIgboke/Prediction-and-classification-of-video-games/blob/main/Notebooks/Images/games.jpeg" alt="Video games">
 </p>
 
 # Project Overview
