@@ -16,14 +16,10 @@ The project workflow below seeks to address these pain points.
 
 # Workflow
 - Data collection
-- Data processing
-  - Preparation
+- Data preparartion
   - Missing data treatment
   - Feature engineering
-  - Feature selection
 - Exploratory data analysis
-  - Univariate analysis
-  - Bivariate analysis
 - Impact of features
 - Prediction of global sales
 - Classifier for sales category
@@ -69,7 +65,7 @@ P.S: All accompanying codes for the next steps are contained in the respective n
 
 
 
-# Data processing
+# Data preparation
 Following best practices, a copy of the dataset was made after importation and all analysis were carried out on that copy. Conducting an initial exploratory data analysis revealed:
 - No duplicate rows
 - Inappropriate data types for some columns
@@ -80,10 +76,49 @@ Following best practices, a copy of the dataset was made after importation and a
 - Summary statistics for numerical columns
 - Unique values for categorical columns
 
+## Tackling missing data
+Upon further analysis, three categories of missing data was observed. Each were treated differently.
+
+1. Missing Completely at Random(MCAR)
+Where the probability of a data point missing is entirely unrelated to any other observed/unobserved data. The name and genre columns fell into this category. Since the number of missing values for this were negligible, they were therefore dropped from the dataset
+
+2. Categorical columns like Publisher, rating, etc
+The NaN was replaced with "missing" to indicate unavailability of relevant data
+
+3. Missing at Random(MAR)
+This applied to the missing values in the numerical columns where missingness is not completely random but can be explained by some other known information. These rows cannot dropped as that will lead to gross information loss thereby impacting the efficiency of our model in the future. To handle this, I used a a multivariate approach - the KNNImputer with k=5 nearest neighbors which allows the imputer to find the 5 most similar rows in the dataset and make imputations for each.
+
+After proper handling of all the cases aforementioned, we have this:
+
+![image](https://github.com/HannahIgboke/Prediction-and-classification-of-video-games/assets/116895464/31dd3732-5ab7-4ab5-ab1d-49c2a4c0f5bd)
+
+## Feature engineering
+
+This involved creating new features based on already available information. I created a new feature called release_era that groups the release year of games into three eras - pre-2000s, 2000-2010, and post-2010. This was created to enable me perform some group level analysis during the EDA process.
+
 
 # Exploratory Data Analysis
+The notebook for a detailed breakdown of the EDA process including univariate and bivariate analysis can be found [here](https://github.com/HannahIgboke/Prediction-and-classification-of-video-games/blob/main/Notebooks/Exploratory%20Data%20Analysis.ipynb). Here, I present some questions I answered and insights revealed from this stage in my analysis.
+
+1. What have the sales through the years been like regionally?
+
+![image](https://github.com/HannahIgboke/Prediction-and-classification-of-video-games/assets/116895464/54f3c83f-2587-487f-af46-90634b573321)
+
+Generally, sales spiked for all regions in 1995.
+
+In North America, there was a wave of fluctuations from 1980 till 1995 when it picked up and rose steadily with a few dips here and there. This reached peak sales of 350 million copies. This was not sustained though, the sales began dwindling through the years till 2016. The sales in all regions were low compared to a decade before that. Sales in Europe and Japan follow a similar pattern. For sales in "other" regions, we see a relatively steady growth from less than one million sales to its highest point around 70 million and then a decline.
 
 
+2.  Is there a correlation between critic scores and user scores? Do they tend to agree or disagree?
+
+![image](https://github.com/HannahIgboke/Prediction-and-classification-of-video-games/assets/116895464/390aeebb-a115-45c3-805f-c72bfd08dbe6)
+
+Based on the correlation plot and a heatmap created during the [analysis](https://github.com/HannahIgboke/Prediction-and-classification-of-video-games/blob/main/Notebooks/Exploratory%20Data%20Analysis.ipynb), there is a moderate positive linear association (0.5) between the user score and the critic score. What does this mean?
+
+This means that there is a noticeable trend between the critic scores and the user scores, even though it is not a perfect relationship. It also tells us that professional critics and users tend to agree to some extent on their assessment of video games. Therefore, stakeholders need to consider both critic and user scores when making decisions about game development and marketing. 
+
+
+Want to see more? Check out the complete EDA process [here](https://github.com/HannahIgboke/Prediction-and-classification-of-video-games/blob/main/Notebooks/Exploratory%20Data%20Analysis.ipynb).
 
 
 # Impact of features on regional sales
