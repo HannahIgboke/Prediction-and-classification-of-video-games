@@ -16,7 +16,7 @@ The project workflow below seeks to address these pain points.
 
 # Workflow
 - Data collection
-- Data preparartion
+- Data preparation
   - Missing data treatment
   - Feature engineering
 - Exploratory data analysis
@@ -30,7 +30,7 @@ The project workflow below seeks to address these pain points.
 # Packages and tools used
 Some tools and packages used in the course of this project include:
 
-- Pandas and numpy
+- Pandas and NumPy
 - KNNImputer
 - Seaborn, and matplotlib
 - Scikit
@@ -192,16 +192,55 @@ linear_model = LinearRegression()
 ```
 
 - Training the algorithm
-- Tests and model evaluation
+- Tests
+- Model evaluation and conclusion
+The model was evaluated based on the R2 and RSME as seen below:
 
+![image](https://github.com/HannahIgboke/Prediction-and-classification-of-video-games/assets/116895464/1113ae70-db4c-4dd4-8b86-5e7175af70b4)
 
+**INSIGHT**
 
-
+The Support Vector regression model is the best-performing model in this comparison, with the lowest RMSE and the highest R² value. It best explains the variability in global sales. The RF and XGB models also perform well, with relatively low RMSE and decent R² values. The DT model however performs the worst as indicated by its high RMSE and negative R² values.
 
 
 # Classifier: what game feature combinations will turn in high or low sales?
 
+This classifier predicts whether a video game will have high (>= 1 million), or low (< 1 million) global sales based on the inputs given by the user such as:
 
+- Platform: The platform on which the game will be released (e.g., PS2, X360, PS3, Wii, etc.).
+- Year of Release: The year in which the game will be released.
+- Genre: The genre of the video game (e.g., Action, Adventure, Sports, etc.).
+- Publisher: The company responsible for publishing the game.
+- Developer: The company responsible for developing the game.
+- Critic Score and counts: The average score given and the number of professional critics who review the games.
+- User Score and counts: The average score given and the number of users.
+- Rating: The rating of the game (e.g., E, T, M, etc.).
+
+This classification model is useful to simulate what a game with certain features/characteristics would sell for, that is if it would have reasonable sales globally. 
+
+This [notebook](https://github.com/HannahIgboke/Prediction-and-classification-of-video-games/blob/main/Notebooks/Classifier%20for%20Game%20sales.ipynb) contains details on building the classifier model. The steps here included:
+
+- Feature engineering: creating the `global_sales_cat` binary feature indicating high or low sales
+- Feature selection as seen below:
+
+![image](https://github.com/HannahIgboke/Prediction-and-classification-of-video-games/assets/116895464/4e1fb515-6b58-40aa-817c-67f3bccec073)
+
+- One-hot encoding using pd.dummies to transform categorical data into a set of binary columns
+- Data splitting
+- Data rescaling on the train and test data differently to prevent data leakage
+- Training the algorithm and handling data imbalance using `balanced weights`
+- Tests
+- Model evaluation, conclusion and saving the best model for deployment
+The model was evaluated based on the train score, test score, average cv score, and standard deviation of the cv scores as seen below:
+
+![image](https://github.com/HannahIgboke/Prediction-and-classification-of-video-games/assets/116895464/ea778aac-1b85-4a34-8c6c-1210f9fe1a3b)
+
+
+**Choosing the best model to use**
+
+The significant difference in the training and testing accuracy as can be observed for most models indicate cases of overfit. 
+
+The LR model has similar training and testing accuracy with an average cross-validation score of 75% and a low standard deviation (0.14) indicating consistent and reliable performance across different data splits. **LR is therefore the best-performing model.**
 
 
 # Model deployment and hosting
