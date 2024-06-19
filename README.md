@@ -69,13 +69,16 @@ P.S: All accompanying codes for the next steps are contained in the respective n
 
 
 
-
 # Data processing
+Following best practices, a copy of the dataset was made after importation and all analysis were carried out on that copy. Conducting an initial exploratory data analysis revealed:
+- No duplicate rows
+- Inappropriate data types for some columns
+- Missing data as seen below
 
+![image](https://github.com/HannahIgboke/Prediction-and-classification-of-video-games/assets/116895464/1206757d-6859-4763-9223-5e21f38b212d)
 
-
-
-
+- Summary statistics for numerical columns
+- Unique values for categorical columns
 
 
 # Exploratory Data Analysis
