@@ -104,14 +104,16 @@ The notebook for a detailed breakdown of the EDA process including univariate an
 
 ![image](https://github.com/HannahIgboke/Prediction-and-classification-of-video-games/assets/116895464/54f3c83f-2587-487f-af46-90634b573321)
 
-Generally, sales spiked for all regions in 1995.
+**INSIGHT**
 
-In North America, there was a wave of fluctuations from 1980 till 1995 when it picked up and rose steadily with a few dips here and there. This reached peak sales of 350 million copies. This was not sustained though, the sales began dwindling through the years till 2016. The sales in all regions were low compared to a decade before that. Sales in Europe and Japan follow a similar pattern. For sales in "other" regions, we see a relatively steady growth from less than one million sales to its highest point around 70 million and then a decline.
+Generally, sales spiked for all regions in 1995. In North America, there was a wave of fluctuations from 1980 till 1995 when it picked up and rose steadily with a few dips here and there. This reached peak sales of 350 million copies. This was not sustained though, the sales began dwindling through the years till 2016. The sales in all regions were low compared to a decade before that. Sales in Europe and Japan follow a similar pattern. For sales in "other" regions, we see a relatively steady growth from less than one million sales to its highest point around 70 million and then a decline.
 
 
 2.  Is there a correlation between critic scores and user scores? Do they tend to agree or disagree?
 
 ![image](https://github.com/HannahIgboke/Prediction-and-classification-of-video-games/assets/116895464/390aeebb-a115-45c3-805f-c72bfd08dbe6)
+
+**INSIGHT**
 
 Based on the correlation plot and a heatmap created during the [analysis](https://github.com/HannahIgboke/Prediction-and-classification-of-video-games/blob/main/Notebooks/Exploratory%20Data%20Analysis.ipynb), there is a moderate positive linear association (0.5) between the user score and the critic score. What does this mean?
 
@@ -122,8 +124,42 @@ Want to see more? Check out the complete EDA process [here](https://github.com/H
 
 
 # Impact of features on regional sales
+The next stage of my analysis sought to answer the question: What effect do the number of critics and users and their review scores have on the sales of video games in North America, Europe,  Japan, and "Other" regions?
+
+Find the notebook for this section [here](https://github.com/HannahIgboke/Prediction-and-classification-of-video-games/blob/main/Notebooks/Impact%20of%20features.ipynb).
+
+For this, I conducted an initial examination to find out if the relationship between the variables was linear.
+
+![image](https://github.com/HannahIgboke/Prediction-and-classification-of-video-games/assets/116895464/8659a0e1-8de3-404c-99eb-bdaa4e658671)
+
+There was no discernable linear relationship between the variables. This was backed further by the results of the R2 when I used multiple linear regression. After performing transformations to the data, the relationships between the variables provided no hint of linearity. To answer this question, I therefore used a non-linear model - RandomForest - to determine feature importance of the variables in the regional sales. The results can be seen below.
+
+For North America:
+
+![image](https://github.com/HannahIgboke/Prediction-and-classification-of-video-games/assets/116895464/38a4ed6e-bc8d-446a-909b-2f9384137bb2)
 
 
+Europe:
+
+![image](https://github.com/HannahIgboke/Prediction-and-classification-of-video-games/assets/116895464/4be95af6-8d88-44df-8a8b-fefbcfd9a127)
+
+
+
+Japan:
+
+![image](https://github.com/HannahIgboke/Prediction-and-classification-of-video-games/assets/116895464/44627496-3872-4d15-8553-2c1514b620e4)
+
+
+"Other" regions
+
+
+![image](https://github.com/HannahIgboke/Prediction-and-classification-of-video-games/assets/116895464/2fa63b4e-7481-494e-a7d9-29f73be98d10)
+
+**INSIGHT**
+
+In all the regions, we see that the number of users accounts for a greater percentage of the effect on the sales of video games. This indicates the popularity of games amongst individuals where the more people use the game, the higher the sales in the region can increase. 
+
+Second to this is the number of professional critics who review the games. The least contributing factors are the user and critic scores. Though the user and critic score is an important metric to track during and after game development, it is however more important that the game becomes a favorite among the audience while keeping an eye on the user score which provides an understanding of the overall user satisfaction or impression of the game on the audience and critics.
 
 
 # Prediction of global sales
