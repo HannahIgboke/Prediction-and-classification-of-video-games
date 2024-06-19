@@ -245,7 +245,7 @@ The model was evaluated based on the training score, test score, average cv scor
 
 The significant difference in the training and testing accuracy as can be observed for most models indicate cases of overfit. 
 
-The Logistic Regression (LR) model has similar training and testing accuracy with an average cross-validation score of 75% and a low standard deviation (0.14) indicating consistent and reliable performance across different data splits. **LR is therefore the best-performing model.** 
+The Logistic Regression (LR) model has similar training and testing accuracy with an average cross-validation score of 74% and a low standard deviation (0.14) indicating consistent and reliable performance across different data splits. **LR is therefore the best-performing model.** 
 
 # Model deployment and hosting
 
