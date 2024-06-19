@@ -164,6 +164,39 @@ Second to this is the number of professional critics who review the games. The l
 
 # Prediction of global sales
 
+The focus here was to create a model that can predict the global sales. The step-by-step process can be found [here](https://github.com/HannahIgboke/Prediction-and-classification-of-video-games/blob/main/Notebooks/Predicting%20global%20sales.ipynb).
+
+The steps here included:
+- Removal of outliers
+- Feature selection: see the selected columns below
+
+![image](https://github.com/HannahIgboke/Prediction-and-classification-of-video-games/assets/116895464/58932152-7e54-4d59-a192-eab67220c836)
+
+
+- One-hot encoding using pd.dummies to transform categorical data into a set of binary columns
+- Data splitting
+- Data rescaling on the train and test data differently to prevent data leakage
+- Defining the models/algorithms
+
+```Python
+##define models
+
+dt_model = tree.DecisionTreeRegressor(max_depth=200)
+svr_model = svm.SVR(kernel='rbf')
+rf_model = RandomForestRegressor(n_estimators=100, random_state=42)
+bayes_model = BayesianRidge(compute_score=True)
+lass_model = Lasso(alpha=0.1)
+xgb_model = XGBRegressor(n_estimators=100, learning_rate=0.1, random_state=42)
+linear_model = LinearRegression()
+
+```
+
+- Training the algorithm
+- Tests and model evaluation
+
+
+
+
 
 
 # Classifier: what game feature combinations will turn in high or low sales?
