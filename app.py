@@ -73,4 +73,5 @@ if st.button('Predict'):
     if prediction == 'High':
         st.success('Based on your inputs, the game is estimated to bring in high sales (more than 1 million game copies sales).' )
     else:
-        st.info('Low sales. The game is estimated to bring in little sales. Consider revising your choice for the game features. \n Visit this notebook to gain understanding into the most important features to include!')
+        st.info('Low sales. The game is estimated to bring in little sales. Consider revising your choice for the game features.')
+        st.markdown('Visit [this notebook](https://github.com/HannahIgboke/Prediction-and-classification-of-video-games/blob/main/Notebooks/Exploratory%20Data%20Analysis.ipynb) to gain understanding into the most important features to include!')
