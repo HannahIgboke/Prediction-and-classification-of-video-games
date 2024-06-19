@@ -228,7 +228,7 @@ This [notebook](https://github.com/HannahIgboke/Prediction-and-classification-of
 - One-hot encoding using pd.dummies to transform categorical data into a set of binary columns
 - Data splitting
 - Data rescaling on the train and test data differently to prevent data leakage
-- Training the algorithm and handling data imbalance using `balanced weights`
+- Training the algorithm and handling data imbalance using `class_weight="balanced"`
 - Tests
 - Model evaluation, conclusion and saving the best model for deployment
 The model was evaluated based on the train score, test score, average cv score, and standard deviation of the cv scores as seen below:
@@ -240,29 +240,41 @@ The model was evaluated based on the train score, test score, average cv score, 
 
 The significant difference in the training and testing accuracy as can be observed for most models indicate cases of overfit. 
 
-The LR model has similar training and testing accuracy with an average cross-validation score of 75% and a low standard deviation (0.14) indicating consistent and reliable performance across different data splits. **LR is therefore the best-performing model.**
-
+The LR model has similar training and testing accuracy with an average cross-validation score of 75% and a low standard deviation (0.14) indicating consistent and reliable performance across different data splits. **LR is therefore the best-performing model.** 
 
 # Model deployment and hosting
 
+This best-performing model is integrated with an app to give users real-time classification results. The app is built using Streamlit. Find the code [here](https://github.com/HannahIgboke/Prediction-and-classification-of-video-games/blob/main/app.py).
 
+The interface for the app looks something like this for dark-themed screens:
 
+![image](https://github.com/HannahIgboke/Prediction-and-classification-of-video-games/assets/116895464/2d012317-09e5-4fa7-8b7a-730232e39aee)
 
-# Conclusion
+You can interact with the app [here](https://prediction-of-video-games.streamlit.app/) 
 
+# Recommendatations
 
+Where do we go from here? What can we do with this information? For stakeholders looking to bring a new game into the market:
+
+1. North America is a major player in the gaming industry. To capture and drive more sales globally, we need to penetrate the market there and garner as much user/fan base and positive reviews as needed to skyrocket sales.
+
+2. Choice of game genre
+
+    Action games are considered the most popular genre of all time, globally. In Japan, however, we may want to focus on role-playing games to leverage Japan's preference for this genre to drive sales from that region.
+    Based on reviews, critics and users prefer Role-playing and fighting games, however, action, shooter, and role-playing games have a larger fan base.
+
+For a new game release, we can consider building a game that belongs to any of the following categories - Action, or Role-playing to drive more sales globally.
+
+3. Game acceptability (ratings)
+
+It is recommended that games should be designed for either E(Everyone), T(Teens ==> 13 years and older), or M ( Mature ==> 17 years and older) to reach more users. This would also impact the return on sales as more people can access the games released by virtue of the game's suitability with the audience.
+
+4. Platform
+
+PS2, X360, and PS3 are household names known to gamers and users globally. In the past four decades, these platforms have contributed the most to global sales. It is recommended that a new game to be released, use any of these platforms to leverage the familiarity of these platforms with the users to drive sales.
 
 
 # Future work 
-
-
-
-
-# License
-
-
-
-
-
-
-
+This project can be extended to improve its functionality and effectiveness by:
+- Investigating the distribution of users in each region to gauge the receptivity of these games in the respective regions
+- Carry out a comparative analysis on the performance of games from the point of release till date.
